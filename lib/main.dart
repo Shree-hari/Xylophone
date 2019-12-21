@@ -8,6 +8,17 @@ class XylophoneApp extends StatelessWidget {
     final player = AudioCache();
     player.play('note$num.wav');
   }
+  Expanded buildKey(var colour,int num){
+    return Expanded(
+      child: FlatButton(
+        color: colour ,
+        onPressed: () {
+          playSound(num);
+        },
+
+      ),
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,69 +28,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
 
             children: <Widget>[
-              Expanded(
-                child: FlatButton(
-                  color: Colors.red,
-                  onPressed: () {
-                    playSound(1);
-                  },
-
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                    color: Colors.orange,
-                  onPressed: () {
-                    playSound(2);
-                  },
-
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                    color: Colors.yellow,
-                  onPressed: () {
-                    playSound(3);
-                  },
-
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                    color: Colors.lightGreenAccent,
-                  onPressed: () {
-                    playSound(4);
-                  },
-
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                    color: Colors.teal,
-                  onPressed: () {
-                    playSound(5);
-                  },
-
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                    color: Colors.lightBlue,
-                  onPressed: () {
-                    playSound(6);
-                  },
-
-                ),
-              ),
-              Expanded(
-                child: FlatButton(
-                    color: Colors.deepPurpleAccent,
-                  onPressed: () {
-                    playSound(7);
-                  },
-
-                ),
-              )
+              buildKey(Colors.red,1),
+              buildKey(Colors.orange,2),
+              buildKey(Colors.yellowAccent, 3),
+              buildKey(Colors.lightGreenAccent,4),
+              buildKey(Colors.teal, 5),
+              buildKey(Colors.lightBlue, 6),
+              buildKey(Colors.deepPurpleAccent,7)
             ],
             crossAxisAlignment: CrossAxisAlignment.stretch,
           ),
